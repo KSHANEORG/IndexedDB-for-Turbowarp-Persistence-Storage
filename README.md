@@ -2,7 +2,7 @@
 
 TurboWarp IndexedDB Extension
 
-This extension enables TurboWarp projects to utilize the browser's IndexedDB API, allowing for the storage, retrieval, and management of structured data directly within the browser.  By leveraging IndexedDB, your projects can handle larger and more complex datasets beyond the capabilities of traditional local storage. Don't understand this buzzword,  it means Local Storage or Save but better.
+This extension enables TurboWarp projects to utilize the browser's IndexedDB API, allowing for the storage, retrieval, and management of structured data directly within the browser.  By leveraging IndexedDB, your projects can handle larger and more complex datasets beyond the capabilities of traditional local storage. If you don't understand this buzzword,  it means Local Storage or Save but better.
 
 
 
