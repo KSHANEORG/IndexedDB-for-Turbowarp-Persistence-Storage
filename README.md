@@ -4,18 +4,14 @@ TurboWarp IndexedDB Extension
 
 This extension enables TurboWarp projects to utilize the browser's IndexedDB API, allowing for the storage, retrieval, and management of structured data directly within the browser.  By leveraging IndexedDB, your projects can handle larger and more complex datasets beyond the capabilities of traditional local storage. 
 
+don't understand this buzzword? it means: Local Storage/Save but better.
+
 
 ---
 
-Features
+Features:
 
-Structured Data Storage: Store complex data structures like objects and arrays persistently.
-
-Asynchronous Operations: Perform non-blocking read/write operations to maintain project performance.
-
-Namespace Support: Organize data using namespaces to prevent key collisions between different projects or components. 
-
-
+IndexedDB on Turbowarp, essentialy: Local Storage, but you can store more data (larger storage capacity). 
 
 ---
 
@@ -35,38 +31,18 @@ Note: Unsandboxed extensions have access to broader browser APIs, including Inde
 
 2. Available Blocks:
 
-Set Namespace [namespace]
-
-Set Key [key] to [value]
-
-Get Key [key]
-
-Delete Key [key]
-
-Clear All Keys 
-
-
-These blocks allow you to interact with the IndexedDB by setting and retrieving values, organizing data under specific namespaces, and managing stored entries.
-
-
-
+Figure it out yourself, should be really accessible already. 
 
 ---
 Example Usage
 
 To store a player's score: 
-
-Set Namespace [MyGame]
 Set Key [PlayerScore] to [1500]
 
 
 
 To retrieve the stored score: 
-
-Set Namespace [MyGame]
-Get Key [PlayerScore]
-
-
+Load Key [PlayerScore]
 
 
 ---
@@ -75,7 +51,7 @@ Important Notes
 
 Unsandboxed Mode: This extension requires unsandboxed mode to access IndexedDB.  Only load extensions from trusted sources to avoid security risks.  
 
-Browser Compatibility: IndexedDB is supported in most modern browsers.  Ensure your browser is up-to-date for optimal performance. 
+Browser Compatibility: IndexedDB is supported in most modern browsers.  Ensure your browser is up-to-date for optimal performance. Or Webview if you somehow want to package a Cordova App on an android device... (iOS too! if on Mac, that is.. ) 
 
 Data Persistence: Data stored using IndexedDB persists across sessions but is specific to the browser and device. 
 
@@ -94,6 +70,8 @@ TurboWarp Unsandboxed Extensions Guide
 ---
 
 By integrating this extension, you can enhance your TurboWarp projects with robust data storage capabilities, enabling more complex and feature-rich applications. 
+
+In other words, Local Storage, but better
 
 ---
 
