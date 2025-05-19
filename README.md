@@ -1,103 +1,99 @@
-# **IndexedDB Extension for TurboWarp**  
-**Complete Persistent Storage Solution**  
-WARNING: Don't Change the "default" store value! Instead, modify the key and the data inside it, For now, usinother store than default won't work. Needs to be run unsandboxed!* 
 ---
-## This extension allows your Scratch projects to **save, load, and manage structured data** using **IndexedDB**, a browser-based NoSQL database. Perfect for:  
 
-✔️ **Game saves** (high scores, player progress)  
-✔️ **User preferences** (settings, themes)  
-✔️ **Offline data storage** (notes, lists, app data)  
----
-# Installation
+TurboWarp IndexedDB Extension
 
-download the extension on this github release page, then go to turbowarp and open your project, add extension, custom extensions, add by files, then import the extension that you've just downloaded. 
+This extension enables TurboWarp projects to utilize the browser's IndexedDB API, allowing for the storage, retrieval, and management of structured data directly within the browser.  By leveraging IndexedDB, your projects can handle larger and more complex datasets beyond the capabilities of traditional local storage. 
 
----
-## 📖 **Quick Documentation**  
-
-### 🔹 **1. Setup & Initialization**  
-| Block | Description | Example |
-|--------|-------------|---------|
-| **`initialize persistent storage`** | Prepares database (run once at start) | `when green flag clicked`<br>`initialize persistent storage :: extension` |
 
 ---
 
-### 🔹 **2. Saving & Loading Data**  
-| Block | Description | Example |
-|--------|-------------|---------|
-| **`save in [store] key [key] value [value]`** | Stores any data (JSON recommended) | `save in "game" key "player1" value "{\"score\":100}"` |
-| **`load from [store] key [key]`** (reporter) | Retrieves saved data | `set [data] to (load from "game" key "player1")` |
+Features
+
+Structured Data Storage: Store complex data structures like objects and arrays persistently.
+
+Asynchronous Operations: Perform non-blocking read/write operations to maintain project performance.
+
+Namespace Support: Organize data using namespaces to prevent key collisions between different projects or components. 
+
+
 
 ---
 
-### 🔹 **3. Key Management**  
-| Block | Description | Example |
-|--------|-------------|---------|
-| **`delete from [store] key [key]`** | Removes specific data | `delete from "game" key "tempScore"` |
-| **`list all keys in [store]`** (reporter) | Returns all keys as JSON array | `set [keys] to (list all keys in "game")` |
-| **`clear all data`** | Wipes entire database | `when [r v] key pressed`<br>`clear all data` |
+Usage Instructions
+
+1. Loading the Extension:
+
+Download the extension on http://pstorage.kenzieshane.my.id/indexeddb.js
+
+Go open the Turbowarp Editor and or Open your Turbowarp project, click the add an extension button --> custom extensions --> add by files, then import the extension that you've just downloaded. I mean, copy and pasting the contents of the file also works
+
+Check the box labeled "Run extension without sandbox" to grant necessary permissions. 
+
+
+Note: Unsandboxed extensions have access to broader browser APIs, including IndexedDB. Ensure you trust the source before enabling this option.
+
+
+2. Available Blocks:
+
+Set Namespace [namespace]
+
+Set Key [key] to [value]
+
+Get Key [key]
+
+Delete Key [key]
+
+Clear All Keys 
+
+
+These blocks allow you to interact with the IndexedDB by setting and retrieving values, organizing data under specific namespaces, and managing stored entries.
+
+
+
+
+---
+Example Usage
+
+To store a player's score: 
+
+Set Namespace [MyGame]
+Set Key [PlayerScore] to [1500]
+
+
+
+To retrieve the stored score: 
+
+Set Namespace [MyGame]
+Get Key [PlayerScore]
+
+
+
 
 ---
 
-## 💾 **Storage Advantages vs localStorage**  
-| Feature | IndexedDB | localStorage |
-|---------|-----------|--------------|
-| **Capacity** | 50% of disk space (GBs possible) | 5-10MB max |
-| **Data Types** | Objects, arrays, binary data | Only strings |
-| **Performance** | Indexed (fast queries) | Linear scan |
-| **Organization** | Multiple stores/tables | Single flat store |
+Important Notes
+
+Unsandboxed Mode: This extension requires unsandboxed mode to access IndexedDB.  Only load extensions from trusted sources to avoid security risks.  
+
+Browser Compatibility: IndexedDB is supported in most modern browsers.  Ensure your browser is up-to-date for optimal performance. 
+
+Data Persistence: Data stored using IndexedDB persists across sessions but is specific to the browser and device. 
+
+
 
 ---
 
-## 🚀 **Example: Game Save System**  
-```scratch
-when green flag clicked
-initialize persistent storage :: extension
+Additional Resources
 
-when [s v] key pressed
-save in "saves" key "progress" value "{
-  \"level\":5, 
-  \"items\":[\"sword\",\"potion\"]
-}" :: extension
+TurboWarp Custom Extensions Documentation
 
-when [l v] key pressed
-set [save] to (load from "saves" key "progress" :: extension)
-```
+TurboWarp Unsandboxed Extensions Guide
+
+
 
 ---
 
-## 💡 **Pro Tips**  
-1. **Use JSON** for complex data:  
-   ```scratch
-   save in "game" key "settings" value "{
-     \"volume\":80,
-     \"controls\":\"wasd\"
-   }"
-   ```
-   
-2. **Check key existence**:  
-   ```scratch
-   if <(list all keys in "saves" :: extension) contains ["progress"]> then
-     load data :: extension
-   end
-   ```
-
-3. **Default store name**: `"default"` (created automatically)
+By integrating this extension, you can enhance your TurboWarp projects with robust data storage capabilities, enabling more complex and feature-rich applications. 
 
 ---
 
-## 🌐 **Browser Support**  
-Works in all modern browsers (Chrome, Firefox, Edge, Safari). Data persists across:  
-✔️ Page refreshes  
-✔️ Browser restarts  
-✔️ Computer reboots  
-
-*(Note: Private/Incognito mode may clear data)*  
-
----
-
-Need more help? Try:  
-- `F12 → Application → IndexedDB` (to debug)  
-- Right-click blocks → "help" in TurboWarp  
-
-Happy coding! 🎮💾
